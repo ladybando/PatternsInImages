@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageAnalyzerFragment">
+
+    <TextView
+        android:id="@+id/object_track_text_view"
+        android:layout_width="100dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="20dp"
+        android:hint="@string/Text" />
+
+    <TextView
+        android:id="@+id/object_track_label_view"
+        android:layout_width="100dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="175dp"
+        android:hint="@string/label"/>
+
+</FrameLayout>

@@ -9,5 +9,21 @@
         android:id="@+id/imageFragment"
         android:name="com.example.android.patternsinimages.ImageFragment"
         android:label="fragment_image"
-        tools:layout="@layout/fragment_image" />
+        tools:layout="@layout/fragment_image" >
+        <action
+            android:id="@+id/action_imageFragment_to_imageAnalyzerFragment"
+            app:destination="@id/imageAnalyzerFragment" />
+        <argument
+            android:name="bitmapImage"
+            app:argType="android.graphics.Bitmap" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageAnalyzerFragment"
+        android:name="com.example.android.patternsinimages.ImageAnalyzerFragment"
+        android:label="fragment_image_analyzer"
+        tools:layout="@layout/fragment_image_analyzer" >
+        <argument
+            android:name="bitmapImage"
+            app:argType="android.graphics.Bitmap" />
+    </fragment>
 </navigation>
