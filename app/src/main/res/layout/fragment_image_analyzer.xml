@@ -3,22 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ImageAnalyzerFragment">
 
-    <TextView
-        android:id="@+id/object_track_text_view"
-        android:layout_width="100dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="20dp"
-        android:hint="@string/Text" />
+ <androidx.recyclerview.widget.RecyclerView
+     android:id="@+id/label_list_view"
+     android:name="com.example.android.patternsinimages.ImageAnalyzerFragment"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:padding="2dp"
+     android:layout_marginLeft="16dp"
+     android:layout_marginRight="16dp"
+     tools:context=".ImageAnalyzerFragment"
+     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+     tools:listitem="@layout/image_analyzer_layout"/>
 
-    <TextView
-        android:id="@+id/object_track_label_view"
-        android:layout_width="100dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="175dp"
-        android:hint="@string/label"/>
+ <TextView
+     android:id="@+id/object_track_text_view"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginStart="20dp"
+     android:padding="6dp"
+     android:hint="@string/Text" />
+
+ <TextView
+     android:id="@+id/object_track_label_view"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="150dp"
+     android:layout_marginStart="175dp"
+     android:padding="6dp"
+     android:hint="@string/label"/>
 
 </FrameLayout>
