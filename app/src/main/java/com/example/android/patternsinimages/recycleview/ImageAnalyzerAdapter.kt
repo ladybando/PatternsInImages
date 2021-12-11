@@ -1,9 +1,7 @@
-package com.example.android.patternsinimages
+package com.example.android.patternsinimages.recycleview
 
-import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.graphics.get
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.patternsinimages.databinding.ImageAnalyzerLayoutBinding
 import com.google.mlkit.vision.label.ImageLabel

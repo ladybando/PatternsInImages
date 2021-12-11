@@ -1,4 +1,4 @@
-package com.example.android.patternsinimages
+package com.example.android.patternsinimages.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.android.patternsinimages.databinding.FragmentImageAnalyzerBinding
+import com.example.android.patternsinimages.recycleview.ImageAnalyzerAdapter
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.label.ImageLabeling
 import com.google.mlkit.vision.label.defaults.ImageLabelerOptions

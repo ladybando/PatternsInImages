@@ -1,4 +1,4 @@
-package com.example.android.patternsinimages
+package com.example.android.patternsinimages.ui
 
 import android.app.Activity
 import android.content.ActivityNotFoundException
@@ -11,10 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.android.patternsinimages.databinding.FragmentImageBinding
+
 /* Fragment that opens camera, and saves image
  * to ImageView for labelling in [ImageAnalyzerFragment].
  * Clicking Image moves to analyzer.
@@ -46,8 +46,9 @@ class ImageFragment : Fragment() {
             binding.capturedImageView.setImageBitmap(imageBitmap)
         }
         binding.capturedImageView.setOnClickListener {
-            val action =
-                ImageFragmentDirections.actionImageFragmentToImageAnalyzerFragment(imageBitmap)
+            val action = ImageFragmentDirections.actionImageFragmentToImageAnalyzerFragment(
+                    imageBitmap
+                )
             findNavController().navigate(action)
         }
     }

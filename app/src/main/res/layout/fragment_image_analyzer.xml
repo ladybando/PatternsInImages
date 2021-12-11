@@ -10,7 +10,7 @@
     android:padding="2dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    tools:context=".ImageAnalyzerFragment"
+    tools:context=".ui.ImageAnalyzerFragment"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:listitem="@layout/image_analyzer_layout">
 
