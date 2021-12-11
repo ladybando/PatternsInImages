@@ -20,6 +20,8 @@ import com.example.android.patternsinimages.databinding.FragmentImageBinding
  * Clicking Image moves to analyzer.
  * */
 
+//todo for animations: https://levelup.gitconnected.com/android-recyclerview-animations-in-kotlin-1e323ffd39be
+//todo follow codelab to show label info in image: https://codelabs.developers.google.com/mlkit-android-odt#1
 class ImageFragment : Fragment() {
     private var _binding: FragmentImageBinding?= null
     private val binding get() = _binding!!
