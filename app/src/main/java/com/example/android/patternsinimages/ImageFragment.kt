@@ -21,8 +21,6 @@ import com.example.android.patternsinimages.databinding.FragmentImageBinding
  * */
 
 class ImageFragment : Fragment() {
-//todo find replacement for onActivityResult: https://www.google.com/search?q=super.onactivityresult+deprecated&rlz=1C1CHBF_enUS947US947&sxsrf=AOaemvKrlrrEw8u9VeM9QbVK4IbqjbiXEg%3A1638838114659&ei=Yq-uYabSJ96iptQPucCo8AI&oq=super.onActivityResult+depre&gs_lcp=Cgdnd3Mtd2l6EAEYADIFCAAQgAQ6BwgjELADECc6BwgAEEcQsAM6BAgjECc6BggAEBYQHkoECEEYAFCYBliGDWC5GmgBcAJ4AIABZ4gB4QSSAQM1LjKYAQCgAQHIAQnAAQE&sclient=gws-wiz
-    //todo: set labels to recycler view
     private var _binding: FragmentImageBinding?= null
     private val binding get() = _binding!!
 
