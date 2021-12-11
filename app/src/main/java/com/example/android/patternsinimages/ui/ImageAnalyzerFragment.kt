@@ -5,8 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.example.android.patternsinimages.R
 import com.example.android.patternsinimages.databinding.FragmentImageAnalyzerBinding
 import com.example.android.patternsinimages.recycleview.ImageAnalyzerAdapter
 import com.google.mlkit.vision.common.InputImage
@@ -31,7 +33,9 @@ class ImageAnalyzerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = binding.labelListView
-        //pass in argument set as Bitmap in nav to InputImage() method
+        //set scale animation on recyclerView
+        recyclerView.animation = AnimationUtils.loadAnimation(recyclerView.context, R.anim.anim)
+        //pass in argument set as Bitmap from navGraph to InputImage() method
         val bitmapImage = args.bitmapImage
         val image = InputImage.fromBitmap(bitmapImage, 0)
         val labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS)
