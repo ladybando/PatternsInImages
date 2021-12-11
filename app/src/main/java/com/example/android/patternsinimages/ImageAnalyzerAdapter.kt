@@ -1,15 +1,14 @@
 package com.example.android.patternsinimages
 
-import android.content.Context
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.get
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.patternsinimages.databinding.ImageAnalyzerLayoutBinding
+import com.google.mlkit.vision.label.ImageLabel
 
-class ImageAnalyzerAdapter(
-    private val dataSet: MutableList<String>,
-    private val listener: Listener
-) :
+class ImageAnalyzerAdapter(private val dataSet: MutableList<ImageLabel>) :
     RecyclerView.Adapter<ImageAnalyzerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,29 +18,12 @@ class ImageAnalyzerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int): Unit = with(holder) {
-        binding.objectTrackTextView.text = dataSet[position]
-        binding.objectTrackTextView.text = dataSet[position]
+        binding.objectTrackLabelView.text = dataSet[position].text
+        binding.objectTrackConfidenceView.text = dataSet[position].confidence.toString()
     }
 
     override fun getItemCount(): Int = dataSet.size
 
     inner class ViewHolder(val binding: ImageAnalyzerLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        private val textView = binding.objectTrackTextView
-        private val labelView = binding.objectTrackLabelView
-
-        init {
-            textView.setOnClickListener {
-                listener.onTaskClicked(adapterPosition)
-            }
-            labelView.setOnClickListener {
-                listener.onLabelClicked(adapterPosition)
-            }
-        }
-    }
-
-    interface Listener {
-        fun onTaskClicked(index: Int)
-        fun onLabelClicked(index: Int)
-    }
+        RecyclerView.ViewHolder(binding.root)
 }
