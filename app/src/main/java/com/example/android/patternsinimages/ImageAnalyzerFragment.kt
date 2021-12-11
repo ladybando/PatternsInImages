@@ -15,7 +15,7 @@ import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 class ImageAnalyzerFragment : Fragment() {
     private var _binding: FragmentImageAnalyzerBinding? = null
     private val binding get() = _binding!!
-    private  val args: ImageAnalyzerFragmentArgs by navArgs()
+    private val args: ImageAnalyzerFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,6 @@ class ImageAnalyzerFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentImageAnalyzerBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -35,17 +34,11 @@ class ImageAnalyzerFragment : Fragment() {
         val bitmapImage = args.bitmapImage
         val image = InputImage.fromBitmap(bitmapImage, 0)
         val labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS)
-        var text = ""
-        var confidence = 0f
-//todo figure out how to make this show in recyclerview. Once onclicklistener happens from imagefragment and moves here
         labeler.process(image)
             .addOnSuccessListener { labels ->
-                    val adapter = ImageAnalyzerAdapter(labels)
-                    recyclerView.adapter = adapter
-                    Log.i("ImageFrag", "LOOP>     [$text]:$confidence")
+                val adapter = ImageAnalyzerAdapter(labels)
+                recyclerView.adapter = adapter
             }
             .addOnFailureListener { e -> Log.d("ImageError", "Error with labeling: $e") }
-
     }
-
 }

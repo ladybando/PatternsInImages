@@ -1,5 +1,6 @@
 package com.example.android.patternsinimages
 
+import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
@@ -9,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,8 +21,6 @@ import com.example.android.patternsinimages.databinding.FragmentImageBinding
  * */
 
 class ImageFragment : Fragment() {
-//todo find replacement for onActivityResult: https://www.google.com/search?q=super.onactivityresult+deprecated&rlz=1C1CHBF_enUS947US947&sxsrf=AOaemvKrlrrEw8u9VeM9QbVK4IbqjbiXEg%3A1638838114659&ei=Yq-uYabSJ96iptQPucCo8AI&oq=super.onActivityResult+depre&gs_lcp=Cgdnd3Mtd2l6EAEYADIFCAAQgAQ6BwgjELADECc6BwgAEEcQsAM6BAgjECc6BggAEBYQHkoECEEYAFCYBliGDWC5GmgBcAJ4AIABZ4gB4QSSAQM1LjKYAQCgAQHIAQnAAQE&sclient=gws-wiz
-    //todo: set labels to recycler view
     private var _binding: FragmentImageBinding?= null
     private val binding get() = _binding!!
 
@@ -56,6 +56,13 @@ class ImageFragment : Fragment() {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
         } catch (e: ActivityNotFoundException) {
             Log.i("ImageFrag1","Error message: $e")
+        }
+    }
+//todo figure out how to use https://www.mongodb.com/developer/article/realm-startactivityforresult-registerForActivityResult-deprecated-android-kotlin/
+    private val getResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()){
+        if (it.resultCode ==  Activity.RESULT_OK){
+            val value = it.data!!.getStringExtra("data")
         }
     }
 }
