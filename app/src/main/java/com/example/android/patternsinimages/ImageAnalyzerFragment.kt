@@ -37,7 +37,7 @@ class ImageAnalyzerFragment : Fragment() {
         val labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS)
         var text = ""
         var confidence = 0f
-//todo figure out how to make this show in recyclerview. Once onclicklistener happens from imagefragment and moves here
+//todo create MutableList to show images in recyclerview. Once onclicklistener happens from imagefragment and moves here
         labeler.process(image)
             .addOnSuccessListener { labels ->
                     val adapter = ImageAnalyzerAdapter(labels)
